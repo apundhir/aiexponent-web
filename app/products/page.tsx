@@ -6,7 +6,7 @@ import { Badge } from '@/components/ui/badge'
 import { CodeBlock } from '@/components/ui/code-block'
 import { GitHubIcon } from '@/components/icons/github-icon'
 import { JsonLd } from '@/components/seo/json-ld'
-import { DEVELOPER_TOOLS, ASSESSMENT_TOOLS, AGENTSHIELD } from '@/lib/tools'
+import { DEVELOPER_TOOLS, AGENTSHIELD } from '@/lib/tools'
 import { siteConfig } from '@/lib/metadata'
 
 export const metadata: Metadata = {
@@ -135,71 +135,6 @@ export default function ProductsPage() {
                   language={tool.language === 'docker' ? 'bash' : 'bash'}
                   className="mt-4"
                 />
-                <div className="mt-4 flex gap-3">
-                  <Button
-                    variant="ghost"
-                    href={tool.docsPath}
-                    className="text-sm flex-1"
-                  >
-                    View Documentation
-                  </Button>
-                  <Button
-                    variant="ghost"
-                    href={`https://github.com/${tool.repo}`}
-                    external
-                    className="text-sm"
-                  >
-                    <GitHubIcon className="h-4 w-4 mr-2" />
-                    GitHub
-                  </Button>
-                </div>
-              </Card>
-            ))}
-          </div>
-        </Container>
-      </section>
-
-      {/* Assessment Tools */}
-      <section className="py-20">
-        <Container>
-          <h2 className="font-serif text-3xl md:text-4xl text-cream mb-4">
-            Assessment Tools
-          </h2>
-          <p className="text-text-secondary mb-12 max-w-2xl">
-            Evaluate your organisation&apos;s AI readiness, identify competency
-            gaps, and build the business case for governance investment.
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {ASSESSMENT_TOOLS.map((tool) => (
-              <Card
-                key={tool.slug}
-                className="flex flex-col border-steel/30"
-              >
-                <div className="flex items-start justify-between gap-4">
-                  <div>
-                    <Badge variant="steel" className="mb-3">
-                      Assessment
-                    </Badge>
-                    <h3 className="font-bold text-xl text-cream">
-                      {tool.name}
-                    </h3>
-                  </div>
-                  <Badge variant="steel">{tool.tierLabel}</Badge>
-                </div>
-                <p className="text-text-secondary mt-3 flex-1">
-                  {tool.longDescription}
-                </p>
-                <div className="mt-4 rounded-md bg-bg-secondary/50 p-4">
-                  <p className="text-xs text-text-tertiary uppercase tracking-wider mb-2">
-                    EU AI Act Relevance
-                  </p>
-                  <p className="text-sm text-text-secondary">
-                    <span className="text-gold font-semibold">
-                      {tool.euAiActArticle} — {tool.euAiActLabel}:
-                    </span>{' '}
-                    {tool.euAiActDescription}
-                  </p>
-                </div>
                 <div className="mt-4 flex gap-3">
                   <Button
                     variant="ghost"

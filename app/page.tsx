@@ -266,7 +266,7 @@ export default function HomePage() {
                 href="/products"
                 className="text-gold hover:text-gold/80 hover:underline text-base font-medium inline-flex items-center gap-1 transition-colors"
               >
-                View all 6 open source tools
+                View all open source tools
                 <span aria-hidden="true">&rarr;</span>
               </Link>
             </div>
