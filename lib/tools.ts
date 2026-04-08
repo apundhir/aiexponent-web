@@ -22,7 +22,7 @@ export const TOOLS: Tool[] = [
   {
     slug: 'license-compliance-checker',
     name: 'License Compliance Checker',
-    repo: 'aiexponent/license-compliance-checker',
+    repo: 'aiexponenthq/license-compliance-checker',
     description: 'Open source AI model license scanning for GPAI compliance.',
     longDescription: 'To our knowledge, the first open source tool specifically designed for scanning AI model licenses against EU AI Act Article 53 GPAI transparency requirements. Scans model repositories and identifies licensing conflicts.',
     installCommand: 'pip install license-compliance-checker',
@@ -53,7 +53,7 @@ export const TOOLS: Tool[] = [
   {
     slug: 'agentic-document-analyser',
     name: 'Agentic Document Analyser',
-    repo: 'aiexponent/agentic-document-analyser',
+    repo: 'aiexponenthq/agentic-document-analyser',
     description: 'Production-ready multi-agent document analysis pipeline.',
     longDescription: 'A multi-agent pipeline for document analysis and risk management. Designed to support AI risk management system requirements under Article 9 of the EU AI Act.',
     installCommand: 'docker compose up',
@@ -84,7 +84,7 @@ export const TOOLS: Tool[] = [
   {
     slug: 'rag-benchmarking',
     name: 'RAG Benchmarking',
-    repo: 'aiexponent/rag-benchmarking',
+    repo: 'aiexponenthq/rag-benchmarking',
     description: 'Systematic RAG evaluation framework for accuracy testing.',
     longDescription: 'A systematic framework for evaluating Retrieval-Augmented Generation systems. Measures accuracy, relevance, and faithfulness against configurable benchmarks.',
     installCommand: 'pip install rag-benchmarking',
@@ -115,7 +115,7 @@ export const TOOLS: Tool[] = [
   {
     slug: 'advanced-rag-engine',
     name: 'Advanced RAG Engine',
-    repo: 'aiexponent/advanced-rag-engine',
+    repo: 'aiexponenthq/advanced-rag-engine',
     description: 'Hybrid search + knowledge graph for production RAG systems.',
     longDescription: 'A hybrid search and knowledge graph engine for production RAG pipelines. Provides the technical foundation for building high-accuracy AI systems.',
     installCommand: 'pip install advanced-rag-engine',
@@ -146,7 +146,7 @@ export const TOOLS: Tool[] = [
   {
     slug: 'ai-skill-planner',
     name: 'AI Skill Planner',
-    repo: 'aiexponent/ai-skill-planner',
+    repo: 'aiexponenthq/ai-skill-planner',
     description: 'AI competency gap analysis for teams and organisations.',
     longDescription: 'Identify and close AI competency gaps in your organisation. Helps teams assess their AI literacy levels and plan upskilling programmes.',
     installCommand: 'pip install ai-skill-planner',
@@ -177,7 +177,7 @@ export const TOOLS: Tool[] = [
   {
     slug: 'ai-roi-calculator',
     name: 'AI ROI Calculator',
-    repo: 'aiexponent/ai-roi-calculator',
+    repo: 'aiexponenthq/ai-roi-calculator',
     description: 'Business case calculator for AI governance investment.',
     longDescription: 'Build the financial business case for AI governance investment. Calculate ROI on compliance spend, risk reduction, and trust-building initiatives.',
     installCommand: 'pip install ai-roi-calculator',

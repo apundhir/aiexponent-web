@@ -8,7 +8,7 @@ export const siteConfig = {
   url: siteUrl,
   tagline: 'Building AI that deserves to be trusted.',
   email: 'hello@aiexponent.com',
-  github: 'https://github.com/aiexponent',
+  github: 'https://github.com/aiexponenthq',
   linkedin: 'https://linkedin.com/company/aiexponent',
   agentshield: 'https://useagentshield.net',
   askajay: 'https://askajay.ai',
