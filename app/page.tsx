@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { Container } from '@/components/ui/container'
 import { Button } from '@/components/ui/button'
 import { Card } from '@/components/ui/card'
 import { Badge } from '@/components/ui/badge'
 import { CodeBlock } from '@/components/ui/code-block'
-import { GitHubIcon } from '@/components/icons/github-icon'
 import { JsonLd } from '@/components/seo/json-ld'
-import { DEVELOPER_TOOLS, ASSESSMENT_TOOLS, AGENTSHIELD } from '@/lib/tools'
+import { TOOLS, AGENTSHIELD, DEVELOPER_TOOLS } from '@/lib/tools'
 import { siteConfig } from '@/lib/metadata'
 
 export const metadata: Metadata = {
@@ -46,6 +46,10 @@ const TIMELINE = [
   },
 ]
 
+const FEATURED_TOOLS = TOOLS.filter((t) =>
+  ['license-compliance-checker', 'agentic-document-analyser'].includes(t.slug)
+)
+
 export default function HomePage() {
   return (
     <>
@@ -60,7 +64,7 @@ export default function HomePage() {
       />
 
       {/* Hero */}
-      <section className="py-24 md:py-32">
+      <section className="bg-bg-primary py-24 md:py-32">
         <Container className="text-center">
           <h1 className="font-serif text-5xl md:text-6xl text-cream max-w-4xl mx-auto">
             Building AI that deserves to be trusted.
@@ -75,10 +79,13 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Problem Statement */}
-      <section className="bg-bg-secondary py-20">
-        <Container>
-          <p className="text-lg text-text-secondary max-w-3xl mx-auto text-center">
+      {/* Problem Statement — CREAM INVERSION for visual rhythm */}
+      <section className="bg-cream py-20">
+        <Container className="text-center">
+          <p className="uppercase tracking-wider text-sm text-gold-accessible font-semibold mb-6">
+            The Challenge
+          </p>
+          <p className="text-xl text-navy max-w-3xl mx-auto leading-relaxed">
             Every company shipping AI is one regulatory deadline away from a
             compliance gap they can&apos;t close. The EU AI Act is live. Most
             teams don&apos;t have the tools to respond.
@@ -86,119 +93,8 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Products Section */}
-      <section id="products" className="py-20 scroll-mt-20">
-        <Container>
-          <h2 className="font-serif text-3xl md:text-4xl text-cream text-center mb-16">
-            The Tools
-          </h2>
-
-          {/* Developer Tools */}
-          <div className="mb-16">
-            <h3 className="text-xl font-semibold text-text-secondary mb-8 uppercase tracking-wider text-sm">
-              Developer Tools
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {DEVELOPER_TOOLS.map((tool, i) => (
-                <Card key={tool.slug}>
-                  <Badge variant="gold" className="mb-4">
-                    {String(i + 1).padStart(2, '0')}
-                  </Badge>
-                  <h4 className="font-bold text-xl text-cream mt-3">
-                    {tool.name}
-                  </h4>
-                  <p className="text-sm text-text-secondary mt-2">
-                    {tool.description}
-                  </p>
-                  <div className="mt-4">
-                    <Badge variant="gold">{tool.euAiActArticle}</Badge>
-                  </div>
-                  <CodeBlock
-                    code={tool.installCommand}
-                    language={tool.language === 'docker' ? 'bash' : 'bash'}
-                    className="mt-4"
-                  />
-                  <Button
-                    variant="ghost"
-                    href={tool.docsPath}
-                    className="mt-4 w-full text-sm"
-                  >
-                    View Documentation
-                  </Button>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Assessment Tools */}
-          <div className="mb-16">
-            <h3 className="text-xl font-semibold text-text-secondary mb-8 uppercase tracking-wider text-sm">
-              Assessment Tools
-            </h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {ASSESSMENT_TOOLS.map((tool, i) => (
-                <Card key={tool.slug}>
-                  <Badge variant="gold" className="mb-4">
-                    {String(DEVELOPER_TOOLS.length + i + 1).padStart(2, '0')}
-                  </Badge>
-                  <h4 className="font-bold text-xl text-cream mt-3">
-                    {tool.name}
-                  </h4>
-                  <p className="text-sm text-text-secondary mt-2">
-                    {tool.description}
-                  </p>
-                  <div className="mt-4">
-                    <Badge variant="gold">{tool.euAiActArticle}</Badge>
-                  </div>
-                  <CodeBlock
-                    code={tool.installCommand}
-                    language="bash"
-                    className="mt-4"
-                  />
-                  <Button
-                    variant="ghost"
-                    href={tool.docsPath}
-                    className="mt-4 w-full text-sm"
-                  >
-                    View Documentation
-                  </Button>
-                </Card>
-              ))}
-            </div>
-          </div>
-
-          {/* Flagship Product */}
-          <div>
-            <h3 className="text-xl font-semibold text-text-secondary mb-8 uppercase tracking-wider text-sm">
-              Flagship Product
-            </h3>
-            <Card className="border-gold/40 max-w-2xl">
-              <Badge variant="gold" className="mb-4">
-                Flagship Product
-              </Badge>
-              <h4 className="font-bold text-xl text-cream mt-3">
-                {AGENTSHIELD.name}
-              </h4>
-              <p className="text-sm text-text-secondary mt-2">
-                {AGENTSHIELD.description}
-              </p>
-              <p className="text-sm text-text-secondary mt-2">
-                {AGENTSHIELD.longDescription}
-              </p>
-              <div className="mt-4 flex gap-2">
-                <Badge variant="gold">{AGENTSHIELD.euAiActArticles}</Badge>
-                <Badge variant="steel">{AGENTSHIELD.euAiActLabel}</Badge>
-              </div>
-              <Button href="/products#agentshield" className="mt-6">
-                Learn More
-              </Button>
-            </Card>
-          </div>
-        </Container>
-      </section>
-
-      {/* EU AI Act Enforcement Timeline */}
-      <section className="bg-bg-secondary py-20">
+      {/* EU AI Act Enforcement Timeline — moved up */}
+      <section className="bg-bg-primary py-20">
         <Container>
           <h2 className="font-serif text-3xl md:text-4xl text-cream text-center mb-16">
             EU AI Act Enforcement Timeline
@@ -210,7 +106,7 @@ export default function HomePage() {
             <div className="grid grid-cols-4 gap-6">
               {TIMELINE.map((milestone) => (
                 <div key={milestone.date} className="relative pt-12">
-                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-gold bg-bg-secondary" />
+                  <div className="absolute top-4 left-1/2 -translate-x-1/2 w-3 h-3 rounded-full border-2 border-gold bg-bg-primary" />
                   <p className="text-gold font-semibold text-sm mb-2">
                     {milestone.date}
                   </p>
@@ -243,7 +139,7 @@ export default function HomePage() {
             <div className="space-y-10">
               {TIMELINE.map((milestone) => (
                 <div key={milestone.date} className="relative">
-                  <div className="absolute -left-5 top-1 w-3 h-3 rounded-full border-2 border-gold bg-bg-secondary" />
+                  <div className="absolute -left-5 top-1 w-3 h-3 rounded-full border-2 border-gold bg-bg-primary" />
                   <p className="text-gold font-semibold text-sm mb-1">
                     {milestone.date}
                   </p>
@@ -272,22 +168,85 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Social Proof */}
-      <section className="py-16">
-        <Container className="text-center">
-          <p className="text-lg text-text-secondary">
-            6 open source tools. Apache 2.0 licensed. Active development on{' '}
-            <a
-              href={siteConfig.github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-text-link hover:underline inline-flex items-center gap-1.5"
+      {/* Gold divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+      {/* Featured Tools */}
+      <section id="products" className="bg-bg-secondary py-20 scroll-mt-20">
+        <Container>
+          <h2 className="font-serif text-3xl md:text-4xl text-cream text-center mb-16">
+            Featured Tools
+          </h2>
+
+          {/* AgentShield — flagship hero card */}
+          <Card className="border-gold/40 mb-8">
+            <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+              <div className="flex-1">
+                <Badge variant="gold" className="mb-4">
+                  Flagship Product
+                </Badge>
+                <h3 className="font-bold text-2xl md:text-3xl text-cream mt-3">
+                  {AGENTSHIELD.name}
+                </h3>
+                <p className="text-base text-text-secondary mt-3">
+                  {AGENTSHIELD.description}
+                </p>
+                <p className="text-base text-text-secondary mt-2">
+                  {AGENTSHIELD.longDescription}
+                </p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  <Badge variant="gold">{AGENTSHIELD.euAiActArticles}</Badge>
+                  <Badge variant="steel">{AGENTSHIELD.euAiActLabel}</Badge>
+                </div>
+                <Button href="/products#agentshield" className="mt-6">
+                  Learn More
+                </Button>
+              </div>
+            </div>
+          </Card>
+
+          {/* Two OSS tools side by side */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-10">
+            {FEATURED_TOOLS.map((tool, i) => (
+              <Card key={tool.slug}>
+                <Badge variant="gold" className="mb-4">
+                  {String(i + 1).padStart(2, '0')}
+                </Badge>
+                <h4 className="font-bold text-xl text-cream mt-3">
+                  {tool.name}
+                </h4>
+                <p className="text-sm text-text-secondary mt-2">
+                  {tool.description}
+                </p>
+                <div className="mt-4">
+                  <Badge variant="gold">{tool.euAiActArticle}</Badge>
+                </div>
+                <CodeBlock
+                  code={tool.installCommand}
+                  language="bash"
+                  className="mt-4"
+                />
+                <Button
+                  variant="ghost"
+                  href={tool.docsPath}
+                  className="mt-4 w-full text-sm"
+                >
+                  View Documentation
+                </Button>
+              </Card>
+            ))}
+          </div>
+
+          {/* View all link */}
+          <div className="text-center">
+            <Link
+              href="/products"
+              className="text-text-link hover:underline text-base font-medium inline-flex items-center gap-1"
             >
-              <GitHubIcon className="h-4 w-4" />
-              GitHub
-            </a>
-            .
-          </p>
+              View all 6 open source tools
+              <span aria-hidden="true">&rarr;</span>
+            </Link>
+          </div>
         </Container>
       </section>
 

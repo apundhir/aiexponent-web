@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useCallback } from 'react'
+import { useEffect, useRef, useCallback, useState } from 'react'
 import Link from 'next/link'
 import { cn } from '@/lib/cn'
 import { LogoIcon } from '@/components/icons/logo-icon'
@@ -16,13 +16,22 @@ interface MobileDrawerProps {
 export function MobileDrawer({ open, onClose, links, pathname }: MobileDrawerProps) {
   const drawerRef = useRef<HTMLDivElement>(null)
   const closeButtonRef = useRef<HTMLButtonElement>(null)
+  const [visible, setVisible] = useState(false)
+  const [animating, setAnimating] = useState(false)
 
   useEffect(() => {
     if (open) {
+      setVisible(true)
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => setAnimating(true))
+      })
       closeButtonRef.current?.focus()
       document.body.style.overflow = 'hidden'
     } else {
+      setAnimating(false)
+      const timer = setTimeout(() => setVisible(false), 250)
       document.body.style.overflow = ''
+      return () => clearTimeout(timer)
     }
     return () => {
       document.body.style.overflow = ''
@@ -60,7 +69,7 @@ export function MobileDrawer({ open, onClose, links, pathname }: MobileDrawerPro
     return () => document.removeEventListener('keydown', handleKeyDown)
   }, [open, handleKeyDown])
 
-  if (!open) return null
+  if (!visible) return null
 
   return (
     <div
@@ -68,7 +77,10 @@ export function MobileDrawer({ open, onClose, links, pathname }: MobileDrawerPro
       role="dialog"
       aria-modal="true"
       aria-label="Navigation menu"
-      className="fixed inset-0 z-[200] bg-bg-primary"
+      className={cn(
+        'fixed inset-0 z-[200] bg-bg-primary transition-transform duration-250 ease-[cubic-bezier(0.4,0,0.2,1)]',
+        animating ? 'translate-x-0' : 'translate-x-full'
+      )}
     >
       <div ref={drawerRef} className="flex flex-col h-full px-5 py-4">
         <div className="flex items-center justify-between">
