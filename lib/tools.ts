@@ -118,7 +118,7 @@ export const AGENTSHIELD = {
   name: 'AgentShield',
   description: 'Real-time policy enforcement for AI agents.',
   longDescription: 'Commercial AI agent governance platform. Audit logging, compliance reporting against EU AI Act and NIST AI RMF, team-level visibility dashboard.',
-  productUrl: 'https://useagentshield.net',
+  productUrl: '/products#agentshield',
   marketingUrl: '/products#agentshield',
   tier: 'flagship-product' as const,
   euAiActArticles: 'Articles 9, 53+',

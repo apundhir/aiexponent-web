@@ -262,8 +262,7 @@ export default function ProductsPage() {
                           ? 'primary'
                           : 'secondary'
                       }
-                      href={AGENTSHIELD.productUrl}
-                      external
+                      href="/contact"
                       className="w-full text-sm"
                     >
                       Get Started
