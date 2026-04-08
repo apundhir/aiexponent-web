@@ -1,4 +1,4 @@
-import { TOOLS, AGENTSHIELD } from '@/lib/tools'
+import { TOOLS, SIGIL } from '@/lib/tools'
 import { siteConfig } from '@/lib/metadata'
 
 export async function GET() {
@@ -18,7 +18,7 @@ export async function GET() {
     (t) => `| ${t.name} | ${t.euAiActArticle} | ${t.euAiActLabel} | ${t.euAiActDescription} |`
   ).join('\n')
 
-  const pricingTiers = Object.values(AGENTSHIELD.pricing)
+  const pricingTiers = Object.values(SIGIL.pricing)
     .map((p) => `  - ${p.label}: ${typeof p.price === 'string' && p.price !== 'Custom' ? `\u00A3${p.price}/mo` : p.price} (${p.agents} agents)`)
     .join('\n')
 
@@ -37,12 +37,12 @@ ${siteConfig.description}
 
 ${toolSections}
 
-## AgentShield (Commercial Product)
-- Description: ${AGENTSHIELD.description}
-- Details: ${AGENTSHIELD.longDescription}
-- Product URL: ${AGENTSHIELD.productUrl}
-- Marketing URL: https://aiexponent.com${AGENTSHIELD.marketingUrl}
-- EU AI Act: ${AGENTSHIELD.euAiActArticles} — ${AGENTSHIELD.euAiActLabel}
+## Sigil (Commercial Product)
+- Description: ${SIGIL.description}
+- Details: ${SIGIL.longDescription}
+- Product URL: ${SIGIL.productUrl}
+- Marketing URL: https://aiexponent.com${SIGIL.marketingUrl}
+- EU AI Act: ${SIGIL.euAiActArticles} — ${SIGIL.euAiActLabel}
 - Pricing:
 ${pricingTiers}
 
@@ -51,7 +51,7 @@ ${pricingTiers}
 | Tool | Article | Label | Description |
 |------|---------|-------|-------------|
 ${euTable}
-| ${AGENTSHIELD.name} | ${AGENTSHIELD.euAiActArticles} | ${AGENTSHIELD.euAiActLabel} | ${AGENTSHIELD.longDescription} |
+| ${SIGIL.name} | ${SIGIL.euAiActArticles} | ${SIGIL.euAiActLabel} | ${SIGIL.longDescription} |
 
 ## Contact
 - General: ${siteConfig.email}

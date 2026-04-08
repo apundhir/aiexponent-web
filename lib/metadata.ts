@@ -10,7 +10,7 @@ export const siteConfig = {
   email: 'hello@aiexponent.com',
   github: 'https://github.com/aiexponenthq',
   linkedin: 'https://linkedin.com/company/aiexponent',
-  agentshield: '/products#agentshield',
+  sigil: '/products#sigil',
   askajay: 'https://askajay.ai',
 }
 

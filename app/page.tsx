@@ -7,7 +7,7 @@ import { Badge } from '@/components/ui/badge'
 import { CodeBlock } from '@/components/ui/code-block'
 import { AnimateOnScroll } from '@/components/ui/animate-on-scroll'
 import { JsonLd } from '@/components/seo/json-ld'
-import { TOOLS, AGENTSHIELD } from '@/lib/tools'
+import { TOOLS, SIGIL } from '@/lib/tools'
 import { siteConfig } from '@/lib/metadata'
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ const TIMELINE = [
     label: 'Full Enforcement',
     article: 'All Articles',
     status: 'upcoming' as const,
-    tools: ['AgentShield'],
+    tools: ['Sigil'],
   },
 ]
 
@@ -198,7 +198,7 @@ export default function HomePage() {
             </p>
           </AnimateOnScroll>
 
-          {/* AgentShield — flagship hero card */}
+          {/* Sigil — flagship hero card */}
           <AnimateOnScroll>
             <Card className="border-gold/40 mb-8 p-8">
               <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
@@ -207,16 +207,16 @@ export default function HomePage() {
                     Flagship Product
                   </Badge>
                   <h3 className="font-serif font-bold text-2xl md:text-3xl text-cream mt-3">
-                    {AGENTSHIELD.name}
+                    {SIGIL.name}
                   </h3>
                   <p className="text-base text-text-secondary mt-3 leading-relaxed">
-                    {AGENTSHIELD.longDescription}
+                    {SIGIL.longDescription}
                   </p>
                   <div className="mt-5 flex flex-wrap gap-2">
-                    <Badge variant="gold">{AGENTSHIELD.euAiActArticles}</Badge>
-                    <Badge variant="steel">{AGENTSHIELD.euAiActLabel}</Badge>
+                    <Badge variant="gold">{SIGIL.euAiActArticles}</Badge>
+                    <Badge variant="steel">{SIGIL.euAiActLabel}</Badge>
                   </div>
-                  <Button href="/products#agentshield" className="mt-6">
+                  <Button href="/products#sigil" className="mt-6">
                     Learn More
                   </Button>
                 </div>
@@ -283,7 +283,7 @@ export default function HomePage() {
                 Need governance at scale?
               </h2>
               <p className="text-text-secondary mb-8 leading-relaxed">
-                Enterprise AI governance with AgentShield. Audit logging,
+                Enterprise AI governance with Sigil. Audit logging,
                 compliance reporting, and team-level visibility for your entire
                 AI portfolio.
               </p>

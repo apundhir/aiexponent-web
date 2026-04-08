@@ -41,7 +41,7 @@ export default function AboutPage() {
             compliance progress from day one.
           </p>
           <p className="text-text-secondary leading-relaxed">
-            On the commercial side, AgentShield is our real-time policy
+            On the commercial side, Sigil is our real-time policy
             enforcement platform for AI agents. It provides audit logging,
             compliance reporting against the EU AI Act and NIST AI RMF, and
             team-level visibility into agent behaviour -- designed for
@@ -69,7 +69,7 @@ export default function AboutPage() {
         <section className="mb-10">
           <h2 className="text-2xl font-semibold text-cream mb-4">Two-Entity Model</h2>
           <p className="text-text-secondary leading-relaxed">
-            AiExponent builds the products -- open source tools and AgentShield.{' '}
+            AiExponent builds the products -- open source tools and Sigil.{' '}
             <a
               href="https://askajay.ai"
               target="_blank"
@@ -89,7 +89,7 @@ export default function AboutPage() {
         <section className="mt-14 rounded-lg border border-bg-border bg-bg-surface p-8">
           <h2 className="text-xl font-semibold text-cream mb-3">Get in touch</h2>
           <p className="text-text-secondary mb-6">
-            Questions about our tools, AgentShield, or partnership opportunities?
+            Questions about our tools, Sigil, or partnership opportunities?
             Reach us at{' '}
             <a
               href={`mailto:${siteConfig.email}`}

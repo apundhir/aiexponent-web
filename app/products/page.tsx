@@ -6,16 +6,16 @@ import { Badge } from '@/components/ui/badge'
 import { CodeBlock } from '@/components/ui/code-block'
 import { GitHubIcon } from '@/components/icons/github-icon'
 import { JsonLd } from '@/components/seo/json-ld'
-import { DEVELOPER_TOOLS, AGENTSHIELD } from '@/lib/tools'
+import { DEVELOPER_TOOLS, SIGIL } from '@/lib/tools'
 import { siteConfig } from '@/lib/metadata'
 
 export const metadata: Metadata = {
   title: 'AI Governance Tools — Open Source + Enterprise',
   description:
-    'Explore AiExponent open source AI governance tools and AgentShield enterprise platform. EU AI Act compliance, risk management, and responsible AI deployment.',
+    'Explore AiExponent open source AI governance tools and Sigil enterprise platform. EU AI Act compliance, risk management, and responsible AI deployment.',
 }
 
-const AGENTSHIELD_FEATURES = [
+const SIGIL_FEATURES = [
   'Real-time policy enforcement for AI agents',
   'Audit logging with full action traceability',
   'EU AI Act and NIST AI RMF compliance reporting',
@@ -28,11 +28,11 @@ const AGENTSHIELD_FEATURES = [
 
 const pricingTiers = [
   {
-    ...AGENTSHIELD.pricing.free,
+    ...SIGIL.pricing.free,
     features: ['Up to 3 agents', 'Basic audit logging', 'Community support'],
   },
   {
-    ...AGENTSHIELD.pricing.pro,
+    ...SIGIL.pricing.pro,
     features: [
       'Up to 25 agents',
       'Full audit logging',
@@ -41,7 +41,7 @@ const pricingTiers = [
     ],
   },
   {
-    ...AGENTSHIELD.pricing.team,
+    ...SIGIL.pricing.team,
     features: [
       'Up to 100 agents',
       'Team dashboard',
@@ -52,7 +52,7 @@ const pricingTiers = [
     highlighted: true,
   },
   {
-    ...AGENTSHIELD.pricing.enterprise,
+    ...SIGIL.pricing.enterprise,
     features: [
       'Unlimited agents',
       'Dedicated account manager',
@@ -72,7 +72,7 @@ export default function ProductsPage() {
           '@type': 'WebPage',
           name: 'AI Governance Tools — Open Source + Enterprise',
           description:
-            'Open source AI governance tools and AgentShield enterprise platform.',
+            'Open source AI governance tools and Sigil enterprise platform.',
           url: `${siteConfig.url}/products`,
         }}
       />
@@ -159,18 +159,18 @@ export default function ProductsPage() {
         </Container>
       </section>
 
-      {/* AgentShield Section */}
-      <section id="agentshield" className="bg-bg-secondary py-20 scroll-mt-20">
+      {/* Sigil Section */}
+      <section id="sigil" className="bg-bg-secondary py-20 scroll-mt-20">
         <Container>
           <div className="max-w-3xl mb-16">
             <Badge variant="gold" className="mb-4">
               Enterprise Product
             </Badge>
             <h2 className="font-serif text-3xl md:text-4xl text-cream mt-2">
-              AgentShield: Enterprise AI Agent Governance
+              Sigil: Enterprise AI Agent Governance
             </h2>
             <p className="text-lg text-text-secondary mt-4">
-              {AGENTSHIELD.longDescription}
+              {SIGIL.longDescription}
             </p>
           </div>
 
@@ -180,7 +180,7 @@ export default function ProductsPage() {
               Platform Features
             </h3>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {AGENTSHIELD_FEATURES.map((feature) => (
+              {SIGIL_FEATURES.map((feature) => (
                 <div
                   key={feature}
                   className="flex items-start gap-3 text-text-secondary"

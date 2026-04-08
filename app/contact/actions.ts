@@ -9,7 +9,7 @@ const contactSchema = z.object({
   jobTitle: z.string().min(1, 'Job title is required'),
   enquiryType: z.enum([
     'Enterprise evaluation',
-    'AgentShield demo',
+    'Sigil demo',
     'Partnership',
     'Open source support',
     'Other',
