@@ -24,7 +24,7 @@ const variants: Record<ButtonVariant, string> = {
 }
 
 const base =
-  'inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold transition-colors duration-200 focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed'
+  'inline-flex items-center justify-center rounded-md px-6 py-3 text-base font-semibold transition-all duration-200 hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-gold focus-visible:outline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100'
 
 export function Button({
   variant = 'primary',
