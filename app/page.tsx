@@ -110,9 +110,12 @@ export default function HomePage() {
       <section className="bg-bg-primary py-20 md:py-28">
         <Container>
           <AnimateOnScroll>
-            <h2 className="font-serif text-3xl md:text-4xl text-cream text-center mb-16">
+            <h2 className="font-serif text-3xl md:text-4xl text-cream text-center mb-4">
               EU AI Act Enforcement Timeline
             </h2>
+            <p className="text-text-secondary text-center mb-16 max-w-2xl mx-auto">
+              The primary regulatory forcing function for responsible AI. Tools for every enforcement milestone.
+            </p>
           </AnimateOnScroll>
 
           {/* Desktop horizontal timeline */}
@@ -200,42 +203,19 @@ export default function HomePage() {
       {/* Gold divider */}
       <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
-      {/* Featured Tools */}
+      {/* Open Source Tools */}
       <section id="products" className="bg-bg-secondary py-20 md:py-28 scroll-mt-20">
         <Container>
           <AnimateOnScroll>
-            <h2 className="font-serif text-3xl md:text-4xl text-cream text-center mb-4">
-              Featured Tools
+            <h2 className="font-serif text-3xl md:text-4xl text-cream text-center mb-2">
+              Open Source Tools
             </h2>
-            <p className="text-text-secondary text-center mb-16 max-w-xl mx-auto">
-              Each tool maps to a specific EU AI Act article. Open source. Apache 2.0 licensed.
+            <p className="text-gold text-center text-sm font-semibold tracking-wider uppercase mb-4">
+              Free. Apache 2.0. No account required.
             </p>
-          </AnimateOnScroll>
-
-          {/* Sigil — flagship hero card */}
-          <AnimateOnScroll>
-            <Card className="border-gold/40 mb-8 p-8">
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
-                <div className="flex-1">
-                  <Badge variant="gold" className="mb-4">
-                    Flagship Product
-                  </Badge>
-                  <h3 className="font-serif font-bold text-2xl md:text-3xl text-cream mt-3">
-                    {SIGIL.name}
-                  </h3>
-                  <p className="text-base text-text-secondary mt-3 leading-relaxed">
-                    {SIGIL.longDescription}
-                  </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    <Badge variant="gold">{SIGIL.euAiActArticles}</Badge>
-                    <Badge variant="steel">{SIGIL.euAiActLabel}</Badge>
-                  </div>
-                  <Button href="/products#sigil" className="mt-6">
-                    Learn More
-                  </Button>
-                </div>
-              </div>
-            </Card>
+            <p className="text-text-secondary text-center mb-16 max-w-xl mx-auto">
+              Each tool maps to a specific EU AI Act article. Install via pip and ship compliance evidence today.
+            </p>
           </AnimateOnScroll>
 
           {/* Two OSS tools side by side */}
@@ -288,21 +268,45 @@ export default function HomePage() {
         </Container>
       </section>
 
-      {/* Enterprise CTA — surface bg for contrast */}
-      <section className="bg-bg-surface py-20 md:py-24">
+      {/* Gold divider */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
+
+      {/* Enterprise Platform — Sigil */}
+      <section className="bg-bg-surface py-20 md:py-28">
         <Container>
           <AnimateOnScroll>
-            <div className="border-l-2 border-gold pl-8 max-w-2xl">
-              <h2 className="font-serif text-2xl md:text-3xl text-cream mb-4">
-                Need governance at scale?
-              </h2>
-              <p className="text-text-secondary mb-8 leading-relaxed">
-                Enterprise AI governance with Sigil. Audit logging,
-                compliance reporting, and team-level visibility for your entire
-                AI portfolio.
-              </p>
-              <Button href="/contact">Talk to Us</Button>
-            </div>
+            <h2 className="font-serif text-3xl md:text-4xl text-cream text-center mb-4">
+              Enterprise Platform
+            </h2>
+            <p className="text-text-secondary text-center mb-16 max-w-xl mx-auto">
+              For teams that need governance at scale — policy enforcement, audit logging, and compliance reporting across your entire AI portfolio.
+            </p>
+          </AnimateOnScroll>
+
+          {/* Sigil — flagship hero card */}
+          <AnimateOnScroll>
+            <Card className="border-gold/60 bg-bg-secondary p-8 shadow-[0_0_0_1px_rgba(212,175,55,0.2),0_8px_32px_rgba(212,175,55,0.08)]">
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-6">
+                <div className="flex-1">
+                  <Badge variant="gold" className="mb-4">
+                    Flagship Product
+                  </Badge>
+                  <h3 className="font-serif font-bold text-2xl md:text-3xl text-cream mt-3">
+                    {SIGIL.name}
+                  </h3>
+                  <p className="text-base text-text-secondary mt-3 leading-relaxed">
+                    {SIGIL.longDescription}
+                  </p>
+                  <div className="mt-5 flex flex-wrap gap-2">
+                    <Badge variant="gold">{SIGIL.euAiActArticles}</Badge>
+                    <Badge variant="steel">{SIGIL.euAiActLabel}</Badge>
+                  </div>
+                  <Button href="/products#sigil" className="mt-6">
+                    Learn More
+                  </Button>
+                </div>
+              </div>
+            </Card>
           </AnimateOnScroll>
         </Container>
       </section>

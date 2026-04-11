@@ -92,12 +92,24 @@ export default function ProductsPage() {
         </Container>
       </section>
 
+      {/* OSS / Enterprise separator intro */}
+      <section className="bg-bg-primary py-10 border-b border-bg-border">
+        <Container>
+          <p className="text-text-secondary max-w-3xl text-base leading-relaxed">
+            Our open source tools are free forever. Sigil is the enterprise platform for teams that need governance at scale.
+          </p>
+        </Container>
+      </section>
+
       {/* Developer Tools */}
       <section className="bg-bg-secondary py-20">
         <Container>
-          <h2 className="font-serif text-3xl md:text-4xl text-cream mb-4">
-            Developer Tools
+          <h2 className="font-serif text-3xl md:text-4xl text-cream mb-2">
+            Open Source Tools
           </h2>
+          <p className="text-gold text-sm font-semibold tracking-wider uppercase mb-4">
+            Free. Apache 2.0. No account required.
+          </p>
           <p className="text-text-secondary mb-12 max-w-2xl">
             Production-ready libraries and frameworks for building compliant AI
             systems. Install via pip or Docker.
@@ -158,6 +170,82 @@ export default function ProductsPage() {
           </div>
         </Container>
       </section>
+
+      {/* Global Regulatory Coverage */}
+      <section className="bg-bg-primary py-16">
+        <Container>
+          <h2 className="font-serif text-3xl text-cream mb-4">Global Regulatory Coverage</h2>
+          <p className="text-text-secondary mb-10 max-w-2xl">
+            Our tools map to the major AI regulations worldwide. Compliance with one framework
+            often satisfies obligations in others.
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* EU AI Act */}
+            <Card>
+              <Badge variant="gold" className="mb-3">Primary</Badge>
+              <h3 className="text-cream font-bold mb-2">EU AI Act</h3>
+              <p className="text-text-secondary text-sm mb-3">The world&apos;s first comprehensive AI regulation. Phased enforcement 2024–2027.</p>
+              <div className="space-y-1">
+                <p className="text-xs text-steel">Articles 4, 5, 9, 10, 13, 15, 53, 72</p>
+                <p className="text-xs text-text-tertiary">Fines up to €35M or 7% global revenue</p>
+              </div>
+            </Card>
+            {/* NIST AI RMF */}
+            <Card>
+              <Badge variant="steel" className="mb-3">US Federal</Badge>
+              <h3 className="text-cream font-bold mb-2">NIST AI RMF</h3>
+              <p className="text-text-secondary text-sm mb-3">Mandatory for US federal contractors. De facto standard for US enterprise AI.</p>
+              <div className="space-y-1">
+                <p className="text-xs text-steel">Govern · Map · Measure · Manage</p>
+                <p className="text-xs text-text-tertiary">EO 14110 · OMB M-24-10</p>
+              </div>
+            </Card>
+            {/* ISO 42001 */}
+            <Card>
+              <Badge variant="steel" className="mb-3">International</Badge>
+              <h3 className="text-cream font-bold mb-2">ISO/IEC 42001:2023</h3>
+              <p className="text-text-secondary text-sm mb-3">AI Management System standard. Certification increasingly required for enterprise procurement.</p>
+              <div className="space-y-1">
+                <p className="text-xs text-steel">39 Annex A controls</p>
+                <p className="text-xs text-text-tertiary">Maps to EU AI Act Annex C</p>
+              </div>
+            </Card>
+            {/* UK AI */}
+            <Card>
+              <Badge variant="default" className="mb-3">UK</Badge>
+              <h3 className="text-cream font-bold mb-2">UK AI Principles</h3>
+              <p className="text-text-secondary text-sm mb-3">Principles-based approach via FCA, ICO, and sector regulators. Legislation expected 2026–2027.</p>
+              <div className="space-y-1">
+                <p className="text-xs text-steel">Safety · Transparency · Fairness · Accountability</p>
+                <p className="text-xs text-text-tertiary">FCA · ICO · CMA sector enforcement</p>
+              </div>
+            </Card>
+            {/* Colorado */}
+            <Card>
+              <Badge variant="default" className="mb-3">US State</Badge>
+              <h3 className="text-cream font-bold mb-2">Colorado AI Act</h3>
+              <p className="text-text-secondary text-sm mb-3">Active since February 2026. Annual algorithmic impact assessments required for high-risk AI.</p>
+              <div className="space-y-1">
+                <p className="text-xs text-steel">SB 24-205 · Impact assessments</p>
+                <p className="text-xs text-text-tertiary">$20K/violation · Private right of action</p>
+              </div>
+            </Card>
+            {/* Canada */}
+            <Card>
+              <Badge variant="default" className="mb-3">Canada</Badge>
+              <h3 className="text-cream font-bold mb-2">Canada AIDA</h3>
+              <p className="text-text-secondary text-sm mb-3">Bill C-27 modelled on EU AI Act. Expected passage mid-2026 with 2-year implementation.</p>
+              <div className="space-y-1">
+                <p className="text-xs text-steel">High-impact AI risk assessments</p>
+                <p className="text-xs text-text-tertiary">Up to $25M penalties</p>
+              </div>
+            </Card>
+          </div>
+        </Container>
+      </section>
+
+      {/* Visual separator before Enterprise section */}
+      <div className="h-px bg-gradient-to-r from-transparent via-gold/30 to-transparent" />
 
       {/* Sigil Section */}
       <section id="sigil" className="bg-bg-secondary py-20 scroll-mt-20">
