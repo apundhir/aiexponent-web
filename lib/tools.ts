@@ -1,3 +1,9 @@
+export interface BenchmarkResult {
+  metric: string
+  score: number
+  label: string
+}
+
 export interface Tool {
   slug: string
   name: string
@@ -5,6 +11,7 @@ export interface Tool {
   description: string
   longDescription: string
   installCommand: string
+  quickStartCode?: string          // Extended code example beyond pip install
   tier: 'tier-1' | 'tier-2' | 'tier-3'
   tierLabel: string
   category: 'developer' | 'assessment'
@@ -16,6 +23,9 @@ export interface Tool {
   sortOrder: number
   limitations: string[]
   features: string[]
+  benchmarkResults?: BenchmarkResult[]  // Real measured scores
+  releaseVersion?: string               // Latest tagged version e.g. "v1.0.0-rc1"
+  pypiPackage?: string                  // PyPI package name if published
 }
 
 export const TOOLS: Tool[] = [
@@ -85,32 +95,57 @@ export const TOOLS: Tool[] = [
     slug: 'rag-benchmarking',
     name: 'RAG Benchmarking',
     repo: 'aiexponenthq/rag-benchmarking',
-    description: 'Systematic RAG evaluation framework for accuracy testing.',
-    longDescription: 'A systematic framework for evaluating Retrieval-Augmented Generation systems. Measures accuracy, relevance, and faithfulness against configurable benchmarks.',
+    description: 'Framework-agnostic evaluation harness for RAG and agentic AI systems.',
+    longDescription: 'Plug in any RAG system — LangChain, LlamaIndex, or custom — and benchmark it against classic and agentic-era metrics. Faithfulness, answer relevancy, retrieval precision, and four agentic metrics for multi-step agents. Measured faithfulness of 0.958 on the 50-sample golden dataset.',
     installCommand: 'pip install rag-benchmarking',
-    tier: 'tier-2',
-    tierLabel: 'Core',
+    tier: 'tier-1',
+    tierLabel: 'Flagship',
     category: 'developer',
     euAiActArticle: 'Article 15',
     euAiActLabel: 'Accuracy Requirements',
-    euAiActDescription: 'Helps meet accuracy documentation and testing requirements.',
+    euAiActDescription: 'Provides systematic accuracy testing and documentation for high-risk AI systems under Article 15.',
     docsPath: '/docs/rag-benchmarking',
     language: 'python',
     sortOrder: 3,
+    quickStartCode: `from app.sdk.client import RagEval
+
+client = RagEval(api_url="http://localhost:5001", api_key="your-key")
+
+# Works with LangChain
+result = my_chain.invoke({"query": "What is RAG?"})
+sample = RagEval.from_langchain(result)
+
+# Or any dict with question / contexts / answer
+sample = {
+    "question": "What is RAG?",
+    "contexts": ["RAG stands for Retrieval-Augmented Generation."],
+    "answer": "RAG combines retrieval with LLM generation.",
+}
+
+report = client.evaluate([sample], metrics=["faithfulness", "answer_relevancy"])
+print(report["metrics"])
+# {"faithfulness": 0.95, "answer_relevancy": 0.81}`,
     limitations: [
       'Benchmark datasets are English-only; no multilingual evaluation support.',
-      'Custom dataset integration requires manual formatting to the expected schema.',
-      'Does not benchmark latency or throughput — focuses on accuracy metrics only.',
-      'Evaluation metrics are limited to faithfulness, relevance, and answer correctness.',
+      'Custom dataset integration requires manual formatting to the expected JSONL schema.',
+      'Accuracy metrics only — latency and throughput are not measured.',
+      'LLM-as-judge metrics depend on the configured judge model quality.',
+      'Rate limiting is in-memory and resets on server restart.',
     ],
     features: [
-      'Systematic evaluation of RAG pipelines',
-      'Measures faithfulness, relevance, and answer correctness',
-      'Configurable benchmark datasets',
-      'Comparison reports across multiple RAG configurations',
-      'CLI and Python API interfaces',
-      'Exportable results in CSV and JSON',
+      'Framework-agnostic — works with LangChain, LlamaIndex, or any custom RAG system',
+      'Classic metrics: faithfulness, answer relevancy, context precision/recall',
+      'Retrieval metrics: Precision@K, Recall@K, MRR, NDCG',
+      'Agentic metrics: agent faithfulness, tool call accuracy, source attribution, retrieval necessity',
+      'REST API + Python SDK with LangChain and LlamaIndex adapters',
+      'Run history with comparison across configurations',
     ],
+    benchmarkResults: [
+      { metric: 'faithfulness', score: 0.958, label: 'Excellent' },
+      { metric: 'answer_relevancy', score: 0.810, label: 'Good' },
+    ],
+    releaseVersion: 'v1.0.0-rc1',
+    pypiPackage: 'rag-benchmarking',
   },
 ]
 
