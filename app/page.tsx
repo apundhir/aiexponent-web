@@ -22,27 +22,31 @@ const TIMELINE = [
     label: 'Prohibited AI Practices',
     article: 'Article 5',
     status: 'enforced' as const,
+    consequence: 'Fines up to €35M. 8 AI practices are illegal now.',
     tools: [],
   },
   {
     date: 'Aug 2025',
-    label: 'GPAI Model Obligations',
-    article: 'Article 53',
+    label: 'GPAI & AI Literacy',
+    article: 'Articles 4 & 53',
     status: 'enforced' as const,
+    consequence: 'GPAI providers must publish documentation. All deployers must evidence staff AI literacy.',
     tools: ['License Compliance Checker'],
   },
   {
     date: 'Aug 2026',
     label: 'High-Risk AI Systems',
-    article: 'Articles 9 & 15',
+    article: 'Articles 9–15',
     status: 'upcoming' as const,
+    consequence: 'Accuracy, data governance, transparency, human oversight — all required for high-risk AI.',
     tools: ['Agentic Document Analyser', 'RAG Benchmarking'],
   },
   {
     date: 'Aug 2027',
-    label: 'Annex I High-Risk AI',
-    article: 'Regulated Products',
+    label: 'AI in Regulated Products',
+    article: 'Annex I',
     status: 'upcoming' as const,
+    consequence: 'AI embedded in medical devices, machinery, and vehicles. Sector-specific — not full enforcement.',
     tools: ['Sigil'],
   },
 ]
@@ -131,6 +135,11 @@ export default function HomePage() {
                     {milestone.status === 'enforced' && (
                       <Badge variant="gold">Enforced</Badge>
                     )}
+                    {'consequence' in milestone && (
+                      <p className="text-text-secondary text-xs mt-2 leading-relaxed">
+                        {milestone.consequence}
+                      </p>
+                    )}
                     {milestone.tools.length > 0 && (
                       <div className="mt-3 space-y-1">
                         {milestone.tools.map((t) => (
@@ -165,6 +174,11 @@ export default function HomePage() {
                     </p>
                     {milestone.status === 'enforced' && (
                       <Badge variant="gold">Enforced</Badge>
+                    )}
+                    {'consequence' in milestone && (
+                      <p className="text-text-secondary text-xs mt-2 leading-relaxed">
+                        {milestone.consequence}
+                      </p>
                     )}
                     {milestone.tools.length > 0 && (
                       <div className="mt-2 space-y-1">
